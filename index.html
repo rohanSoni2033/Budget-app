@@ -20,48 +20,109 @@
 
         </div>
 
-        <svg id="account-balance">
-            <use href="./sprite.svg#account-balance" />
-        </svg>
+        <div class="modal--add-expense">
 
-        <svg id="add">
-            <use href="./sprite.svg#add" />
-        </svg>
-        <svg id="explore">
-            <use href="./sprite.svg#explore" />
-        </svg>
+        </div>
+        <div class="display">
 
-        <svg id="health">
-            <use href="./sprite.svg#health" />
-        </svg>
-        <svg id="transportation">
-            <use href="./sprite.svg#transportation" />
-        </svg>
+        </div>
 
-        <svg id="smart-display">
-            <use href="./sprite.svg#smart-display" />
-        </svg>
-        <svg id="redeem">
-            <use href="./sprite.svg#redeem" />
-        </svg>
-        <svg id="restaurant">
-            <use href="./sprite.svg#restaurant" />
-        </svg>
-        <svg id="savings">
-            <use href="./sprite.svg#savings" />
-        </svg>
-        <svg id="school">
-            <use href="./sprite.svg#school" />
-        </svg>
-        <svg id="credit-card">
-            <use href="./sprite.svg#credit-card" />
-        </svg>
-        <svg id="shopping-cart">
-            <use href="./sprite.svg#shopping-cart" />
-        </svg>
-        <svg id="local-mall">
-            <use href="./sprite.svg#local-mall" />
-        </svg>
+        <div class="modal--add-expense">
+
+            <form class="form--add-expense">
+
+                <input type="text" placeholder="expense amount" class="input--expense-amount">
+                <div class="container-expense-type">
+                    <input type="button" value="expense type">
+
+
+                    <div class="container-expenses-type-option">
+                        <div class="expenses-type-option">
+                            <input type="radio" name="expenses-type" id="education">
+                            <label for="education"> <svg id="school">
+                                    <use href="./sprite.svg#school" />
+                                </svg> education</label>
+                        </div>
+                        <div class="expenses-type-option">
+                            <input type="radio" name="expenses-type" id="Repair-&-Maintanense">
+                            <label for="Repair-&-Maintanense"><svg id="handyman">
+                                    <use href="./sprite.svg#handyman" />
+                                </svg> Repair & Maintanense</label>
+                        </div>
+                        <div class="expenses-type-option">
+                            <input type="radio" name="expenses-type" id="bills">
+                            <label for="bills"><svg id="receipt">
+                                    <use href="./sprite.svg#receipt" />
+                                </svg> bills</label>
+                        </div>
+                        <div class="expenses-type-option">
+                            <input type="radio" name="expenses-type" id="entertainment">
+                            <label for="entertainment"><svg id="smart-display">
+                                    <use href="./sprite.svg#smart-display" />
+                                </svg> entertainment</label>
+                        </div>
+                        <div class="expenses-type-option">
+                            <input type="radio" name="expenses-type" id="traveling">
+                            <label for="traveling"><svg id="explore">
+                                    <use href="./sprite.svg#explore" />
+                                </svg> traveling</label>
+                        </div>
+                        <div class="expenses-type-option">
+                            <input type="radio" name="expenses-type" id="health">
+                            <label for="health"><svg id="health">
+                                    <use href="./sprite.svg#health" />
+                                </svg> health</label>
+                        </div>
+                        <div class="expenses-type-option">
+                            <input type="radio" name="expenses-type" id="vehicle">
+                            <label for="vehicle"><svg id="transportation">
+                                    <use href="./sprite.svg#transportation" />
+                                </svg> vehicle</label>
+                        </div>
+                        <div class="expenses-type-option">
+                            <input type="radio" name="expenses-type" id="shopping">
+                            <label for="shopping"><svg id="shopping-cart">
+                                    <use href="./sprite.svg#shopping-cart" />
+                                </svg> shopping</label>
+                        </div>
+                        <div class="expenses-type-option">
+                            <input type="radio" name="expenses-type" id="rent">
+                            <label for="rent"><svg id="home">
+                                    <use href="./sprite.svg#home" />
+                                </svg> rent</label>
+                        </div>
+                        <div class="expenses-type-option">
+                            <input type="radio" name="expenses-type" id="other">
+                            <label for="other"><svg id="currency-bitcoin">
+                                    <use href="./sprite.svg#currency-bitcoin" />
+                                </svg> Investment</label>
+                        </div>
+                        <div class="expenses-type-option">
+                            <input type="radio" name="expenses-type" id="other">
+                            <label for="other"><svg id="restaurant">
+                                    <use href="./sprite.svg#restaurant" />
+                                </svg> food</label>
+                        </div>
+                        <div class="expenses-type-option">
+                            <input type="radio" name="expenses-type" id="other">
+                            <label for="other"><svg id="redeem">
+                                    <use href="./sprite.svg#redeem" />
+                                </svg> other</label>
+                        </div>
+                    </div>
+
+
+                </div>
+                <input type="text" placeholder="expense name" class="input--expense-name">
+
+                <textarea placeholder="expense description" class="input--expense-description"></textarea>
+
+                <button type="button" class="btn btn-add-expense">
+                    <span>Add</span>
+                </button>
+            </form>
+
+        </div>
     </main>
 
     <script src="./js/main.js" type="module"></script>
