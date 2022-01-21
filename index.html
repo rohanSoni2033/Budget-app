@@ -12,22 +12,88 @@
 
 <body>
     <main class="main">
-        <div class="container">
-            <button class="btn--add-expense">+</button>
-            <h1 class="time">15 Jan</h1>
-        </div>
-        <div class="display">
 
-        </div>
+        <section class="section--balance-details col">
+            <div class="container--user-details">
+                <div class="col">
+                    <span class="username">Hii Rohan Soni</span>
+                    <span class="welcome">Welcome,</span>
+                </div>
+                <button class="btn btn--add-transaction">
+                    <svg id="add">
+                        <use href="./sprite.svg#add" />
+                    </svg></button>
 
-        <div class="modal--add-expense">
+            </div>
+            <div class="container--balance-details">
 
-        </div>
-        <div class="display">
+                <div class="available-balance">
+                    <div class="col">
+                        <span class="available-balance-title">avilable balance</span>
+                        <span class="date">Fri 20 Jan 22</span>
+                    </div>
 
-        </div>
+                    <h2 class="total-available-balance">$ 200,00</h2>
+                </div>
+                <div class="other-balance">
+                    <div class="col">
+                        <span class="spent">spent</span>
+                        <h3>$ 12,000</h3>
+                    </div>
 
-        <div class="modal--add-expense">
+                    <div class="col">
+                        <span class="income">income</span>
+                        <h3>$ 1400</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container--transactions-list">
+                <div class="container--transation">
+                    <div class="transation-date col">
+                        <h4>23</h4>
+                        <h3>TODAY</h3>
+                    </div>
+                    <div class="transaction-details">
+                        <span class="transaction-name">Money sent to Rohan soni</span>
+                        <span class="transaction-time"></span>
+                        <h3 class="transaction-amount">- $200,3</h3>
+                    </div>
+
+                </div>
+                <div class="container--transation">
+                    <div class="transation-date col">
+                        <h4>23</h4>
+                        <h3>TODAY</h3>
+                    </div>
+                    <div class="transaction-details">
+                        <span class="transaction-name">Money sent to Rohan soni</span>
+                        <span class="transaction-time"></span>
+                        <h3 class="transaction-amount">- $200,3</h3>
+                    </div>
+
+                </div>
+                <div class="container--transation">
+                    <div class="transation-date col">
+                        <h4>23</h4>
+                        <h3>TODAY</h3>
+                    </div>
+                    <div class="transaction-details">
+                        <span class="transaction-name">Money sent to Rohan soni</span>
+                        <span class="transaction-time"></span>
+                        <h3 class="transaction-amount">- $200,3</h3>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </section>
+        <section class="section--chart">
+
+        </section>
+        <div class="modal--add-expense hidden">
 
             <form class="form--add-expense">
 
@@ -113,7 +179,6 @@
 
 
                 </div>
-                <input type="text" placeholder="expense name" class="input--expense-name">
 
                 <textarea placeholder="expense description" class="input--expense-description"></textarea>
 
