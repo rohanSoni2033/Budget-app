@@ -147,6 +147,7 @@ svg use {
   display: flex;
   padding: 12px;
   justify-content: space-around;
+  align-self: center;
 }
 
 .other-balance .col {
@@ -235,6 +236,10 @@ svg use {
   font-size: 18px;
 }
 
+/* .transaction-amount.debit {
+  color: red;
+} */
+
 /* ADD TRANSACTION MODAL */
 #restaurant {
   background-color: rgb(240, 144, 0);
@@ -288,11 +293,10 @@ svg use {
 #currency-bitcoin {
   background-color: orange;
 }
-/* /////////////////////////// */
 
+/* /////////////////////////// */
 /* ADD TRANSACTION MODAL */
 .form--add-expense {
-  width: 100%;
   background-color: #353535;
   display: flex;
   flex-wrap: wrap;
