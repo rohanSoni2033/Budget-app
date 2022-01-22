@@ -411,5 +411,8 @@ svg use {
 
 .section--chart {
   flex: 1;
-  background-color: rgb(211, 211, 211);
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
