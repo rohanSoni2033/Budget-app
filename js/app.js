@@ -8,8 +8,6 @@ export default class App {
 
     const view = new View(this.root, {
       changeChartType(chartType) {
-        console.log('⭐⭐');
-        console.log(this._displayChart);
         new Display(this.root, chartType);
       },
     });
