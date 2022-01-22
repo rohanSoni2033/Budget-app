@@ -4,7 +4,20 @@ import View from './view.js';
 
 export default class App {
   constructor(root) {
-    console.log(root);
-    new Display(root);
+    this.root = root;
+
+    const view = new View(this.root, {
+      changeChartType(chartType) {
+        console.log('⭐⭐');
+        console.log(this._displayChart);
+        new Display(this.root, chartType);
+      },
+    });
+
+    this._displayChart('doughnut');
+  }
+
+  _displayChart(chartType) {
+    new Display(this.root, chartType);
   }
 }

@@ -1,9 +1,19 @@
 export default class Display {
-  constructor(root) {
-    const ctx = root.querySelector('#myChart');
+  constructor(root, type) {
+    root.querySelector('#myChart').remove();
 
-    const myChart = new Chart(ctx, {
-      type: 'doughnut',
+    // var ctx = document.getElementById('canvas').getContext('2d');
+
+    const chartContainer = root.querySelector('.section--chart');
+
+    chartContainer.insertAdjacentHTML(
+      'beforeend',
+      '<canvas id="myChart"></canvas>'
+    );
+    const ctx = root.querySelector('#myChart').getContext('2d');
+
+    this.myChart = new Chart(ctx, {
+      type: `${type}`,
       data: {
         labels: [
           'Education',
@@ -46,14 +56,15 @@ export default class Display {
         ],
       },
       options: {
+        responsive: true,
         backgroundColor: 'rgba(0, 0, 0, 0.1)',
-        // scales: {
-        //   y: {
-        //     beginAtZero: true,
-        //   },
-        // },
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
         layout: {
-          padding: 180,
+          padding: 100,
         },
       },
     });

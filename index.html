@@ -193,7 +193,22 @@
 
         </section>
         <section class="section--chart">
-            <canvas id="myChart" width="400px" height="400px"></canvas>
+            <div class="sectoin-chart_container-btn">
+                <button class="btn change-chart-type row" data-chartType="bar">
+                    <svg>
+                        <use href="./sprite.svg#bar-chart">
+                    </svg> bar</button>
+                <button class="btn change-chart-type row" data-chartType="pie"><svg>
+                        <use href="./sprite.svg#pie-chart">
+                    </svg>pie</button>
+                <button class="btn change-chart-type row" data-chartType="doughnut"><svg>
+                        <use href="./sprite.svg#donut">
+                    </svg>doughnut</button>
+            </div>
+
+            <div class="container-chart">
+                <canvas id="myChart"></canvas>
+            </div>
         </section>
         <div class="modal--add-expense hidden">
 
