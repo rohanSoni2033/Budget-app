@@ -31,11 +31,12 @@ body {
 .main {
   width: 100%;
   height: 100vh;
-  /* overflow: hidden; */
   display: flex;
 }
 
-/* GLOBAL */
+/* ///////////////////////////////// */
+/* GLOBAL CSS */
+
 .inp {
   border: 0;
   font-size: inherit;
@@ -98,14 +99,14 @@ svg use {
 .evenly {
   justify-content: space-evenly;
 }
-
-/*  BALANCE DETAILS SECTION*/
-/* //////////////////////////// */
-
-.section--balance-details {
+/* ///////////////////////////////// */
+/* SECTION BALANCE */
+.section--details {
   flex: 0 0 35%;
   position: relative;
 }
+/* //////////////////////////////// */
+/* DASHBOARD */
 
 .dashboard {
   width: 100%;
@@ -116,21 +117,6 @@ svg use {
 .container--user-details {
   width: 100%;
   padding: 24px;
-}
-
-.username {
-  font-size: 18px;
-  font-size: 800;
-}
-
-.welcome {
-  color: rgb(22, 131, 255);
-  font-weight: 900;
-}
-
-.container--balance-details {
-  display: flex;
-  flex-direction: column;
 }
 
 .available-balance {
@@ -147,6 +133,21 @@ svg use {
 
 .available-balance-title {
   font-weight: 800;
+}
+
+.username {
+  font-size: 18px;
+  font-size: 800;
+}
+
+.welcome {
+  color: rgb(22, 131, 255);
+  font-weight: 900;
+}
+
+.container--balance-details {
+  display: flex;
+  flex-direction: column;
 }
 
 .other-balance {
@@ -167,7 +168,7 @@ svg use {
 }
 
 .other-balance .col .spent {
-  color: rgb(255, 69, 13);
+  color: rgb(255, 13, 13);
   text-transform: uppercase;
 }
 
@@ -176,23 +177,21 @@ svg use {
   text-transform: uppercase;
 }
 
-#add {
-  background-color: rgb(0, 0, 0);
-}
-
 .total-available-balance {
   font-size: 36px;
   font-weight: 800;
 }
 
-.date {
+.available-balance .date {
   font-size: 12px;
 }
-
+/* /////////////////////////////// */
+/* TRANSACTION LIST */
 .container--transactions-list {
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 24px;
   overflow-y: scroll;
 }
@@ -205,41 +204,61 @@ svg use {
   background-color: #eee;
 }
 
-.container--transation {
+.container--transaction {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 8px;
+  border-radius: 12px;
 }
 
-.transation-date {
+.container--transaction .row {
+  gap: 16px;
+}
+
+.container--transaction svg {
+  width: 36px;
+  height: 36px;
+}
+
+.container--transaction .container--btn {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 12px;
+  gap: 12px;
+}
+
+.transaction-details {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  align-items: center;
+  gap: 16px;
+}
+
+.container--btn .btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.btn--edit-transaction svg {
+  background-image: linear-gradient(45deg, rgb(255, 63, 63), rgb(238, 54, 192));
+}
+.btn--delete-transaction svg {
+  background-color: #470097;
+}
+
+.transaction-date {
+  color: rgb(27, 107, 255);
 }
 
 .transaction-name {
   font-size: 16px;
   font-weight: 600;
 }
-.transaction-details {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 24px;
-  gap: 12px;
-}
-.transaction-month {
-  font-size: 18px;
-}
 
-.transaction-amount {
-  font-size: 18px;
-}
-
-/* .transaction-amount.debit {
-  color: red;
-} */
-
-/* ADD TRANSACTION MODAL */
+/* ///////////////////////////////// */
+/* SVG CSS */
 #svg--food {
   background-color: rgb(240, 144, 0);
 }
@@ -301,9 +320,8 @@ svg use {
   background-color: red;
 }
 
+/* ADD TRASACTION MODAL */
 /* /////////////////////////// */
-/* ADD TRANSACTION MODAL */
-
 .modal--header {
   flex: 1;
   background-color: indigo;
@@ -431,10 +449,6 @@ p {
   font-weight: 800;
 }
 
-/* .close--modal {
-  width: fit-content
-} */
-
 .close--modal svg {
   width: 40px;
   height: 40px;
@@ -496,9 +510,8 @@ p {
   width: 100%;
   display: flex;
 }
-
-/* CHART SECTION */
-
+/* ///////////////////////////////////// */
+/* CHART */
 .section--chart {
   flex: 1;
   display: flex;
@@ -531,3 +544,4 @@ p {
 .hidden {
   display: none;
 }
+/* ////////////////////////////////// */

@@ -7,8 +7,7 @@ export default class View {
 
     const dashboard = `
       <div class="dashboard col">
-        <div class="container--user-details">
-          <div class="row">
+        <div class="container--user-details row">
             <div class="col">
                 <span class="username">Hii ${data.username}</span>
                 <span class="welcome">Welcome,</span>
@@ -18,7 +17,6 @@ export default class View {
                   <use href="./sprite.svg#add" />
               </svg>
             </button>
-          </div>
         </div>
         <div class="container--balance-details">
           <div class="available-balance">
@@ -46,23 +44,32 @@ export default class View {
            ${data.transactions
              .map((transaction) => {
                return `
-            <div class="container--transation">
-              <div class="flex-center col">
-                <h3>${transaction.date}</h3>
-                <h5>TODAY</h5>
-              </div>
-              <div class="transaction-details">
-                <span class="transaction-name">${transaction.name}</span>
-                <span class="transaction-time"></span>
-                <h3 class="transaction-amount debit">${transaction.amount}</h3>
-                <div class="transaction-type">
-                  <svg id="svg--${transaction.type}">
-                    <use href="./sprite.svg#svg--${transaction.type}" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-             `;
+                      <div class="container--transaction">
+                        <div class="row">
+                          <div class="transaction-details">
+                            <svg id="svg--${transaction.type}">
+                                <use href="./sprite.svg#svg--${transaction.type}" />
+                            </svg>
+                            <div class="transaction-name col">
+                                <span>${transaction.name}</span>
+                                <span class="transaction-date">${transaction.date}</sp>
+                            </div>
+                          </div>
+                            <h3 class="transaction-amount debit">₹${transaction.amount}</h3>
+                        </div>
+                        <div class="container--btn">
+                            <button class="btn flex-center btn--edit-transaction">
+                                <svg>
+                                    <use href="./sprite.svg#edit" />
+                                </svg>
+                            </button>
+                            <button class="btn flex-center btn--delete-transaction">
+                                <svg>
+                                    <use href="./sprite.svg#delete" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>`;
              })
              .join('')}
         </div>
@@ -78,23 +85,16 @@ export default class View {
                         </svg>
                     </button>
                 </div>
-
                 <form class="form--add-expense">
-
                     <div class="container--input-expense-details">
                         <label for="expense-name">what is this for</label>
                         <input type="text" class="inp input--expense-name" id="expense-name">
-                        <label for="expense-description">expense description</label>
-                        <textarea class="inp input--expense-description"></textarea>
                     </div>
-
-
                     <div class="container--input-expense">
                         <div>
                             <label for="expense-amount">Enter the amount</label>
                             <input type="text" class="inp input--expense-amount" id="expense-amount">
                         </div>
-
                         <div class="expense-category">
                             <p>category</p>
                             <svg id="select-expense-category">
@@ -205,7 +205,7 @@ export default class View {
    `;
 
     this.root
-      .querySelector('.section--balance-details')
+      .querySelector('.section--details')
       .insertAdjacentHTML('afterbegin', dashboard);
 
     this.root
