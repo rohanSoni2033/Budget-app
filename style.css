@@ -104,7 +104,7 @@ svg use {
 
 .section--balance-details {
   flex: 0 0 35%;
-  /* padding: 0 24px; */
+  position: relative;
 }
 
 .dashboard {
@@ -240,56 +240,60 @@ svg use {
 } */
 
 /* ADD TRANSACTION MODAL */
-#restaurant {
+#svg--food {
   background-color: rgb(240, 144, 0);
 }
-#school {
+
+#svg--education {
   background-color: rgb(100, 0, 231);
 }
 
-#redeem {
+#svg--other {
   background-color: rgb(0, 240, 60);
 }
 
-#health {
+#svg--health {
   background-color: rgb(0, 180, 0);
 }
-#explore {
+
+#svg--rechargeBills {
+  background-color: gold;
+}
+
+#svg--traveling {
   background-color: rgb(0, 140, 255);
 }
-#restaurant {
-  background-color: rgb(252, 116, 25);
-}
-#transportation {
+
+#svg--vehicle {
   background-color: rgb(168, 124, 58);
 }
 #local-mall {
   background-color: rgb(240, 144, 0);
 }
-#smart-display {
+#svg--entertainment {
   background-color: rgb(114, 0, 180);
 }
 #savings {
   background-color: rgb(3, 0, 180);
 }
 
-#shopping-cart {
+#svg--shopping {
   background-color: rgb(243, 0, 0);
 }
 
-#receipt {
+#svg--rechargeBills {
   background-color: indigo;
 }
 
-#home {
+#svg--rent {
   background-color: lightcoral;
 }
 
-#handyman {
+#svg--RepairMaintanense {
   background-color: lightseagreen;
 }
 
-#currency-bitcoin {
+#svg--investment {
   background-color: orange;
 }
 
@@ -318,9 +322,17 @@ svg use {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateX(0%);
+  z-index: 20;
+  transition: transform 0.4s;
 }
 
+.modal--add-expense.hide {
+  transform: translateX(-100%);
+}
 .container-expenses-type-option {
   width: 60%;
   height: 300px;
