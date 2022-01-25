@@ -2,22 +2,16 @@ export default class Storage {
   constructor(username, id) {
     this.username = username;
     this.id = id;
-    this.availableBalance = availableBalance;
-    this.transactions = [];
-
-    // {
-    //   transaction-type
-    //   date
-    //   name
-    //   expense-type
-    //   transaction-amount
-    // }
   }
-  getAllData() {}
+  _getAllData() {
+    const expensesData = localStorage.getItem('expensesData');
 
-  saveData() {}
+    return JSON.parse(expensesData);
+  }
 
-  deleteData() {}
+  _saveData() {}
 
-  updateData() {}
+  _deleteData() {}
+
+  _updateData() {}
 }
