@@ -73,33 +73,42 @@ export default class View {
              })
              .join('')}
         </div>
-
-        </div>
-
-         <div class="modal--add-expense hide">
-                <div class="modal--header">
-                    <p class="modal-monthly-balance">monthly balance 2300</p>
-                    <button class="btn flex-center close--modal">
-                        <svg>
-                            <use href="./sprite.svg#highlight">
-                        </svg>
-                    </button>
-                </div>
+    </div> 
+     <div class="modal--add-transaction hide">
                 <form class="form--add-expense">
-                    <div class="container--input-expense-details">
-                        <label for="expense-name">what is this for</label>
-                        <input type="text" class="inp input--expense-name" id="expense-name">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <span class="username">Hii ${
+                                  data.username
+                                }</span>
+                                <span class="welcome">Welcome,</span>
+                            </div>
+                            <button class="btn flex-center close--modal" type="button">
+                                <svg>
+                                    <use href="./sprite.svg#highlight">
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="container--input-expense-name">
+                            <label for="expense-name">what is this for</label>
+                            <input type="text" class="inp input--expense-name"
+                                placeholder="eg. bought new t-shirt, paid electricity bills">
+                        </div>
                     </div>
                     <div class="container--input-expense">
-                        <div>
+                        <div class="container--input-expense-amount">
                             <label for="expense-amount">Enter the amount</label>
-                            <input type="text" class="inp input--expense-amount" id="expense-amount">
+                            <input type="text" class="inp input--expense-amount" id="expense-amount"
+                                placeholder="₹ 1250">
                         </div>
                         <div class="expense-category">
                             <p>category</p>
-                            <svg id="select-expense-category">
-                                <use href="./sprite.svg#redeem" />
-                            </svg>
+                            <button class="btn select-expense-category" id="select-expense-category" type="button">
+                                <svg>
+                                    <use href="./sprite.svg#svg--other" />
+                                </svg>
+                            </button>
                             <div class="container-expenses-type-option hidden">
                                 <div class="expenses-type-option">
                                     <input type="radio" name="expenses-type" id="education">
@@ -109,7 +118,7 @@ export default class View {
                                 </div>
                                 <div class="expenses-type-option">
                                     <input type="radio" name="expenses-type" id="Repair-&-Maintanense">
-                                    <label for="Repair-&-Maintanense"><svg id="svg--Repair-&-Maintanense">
+                                    <label for="Repair-&-Maintanense"><svg id="svg--RepairMaintanense">
                                             <use href="./sprite.svg#svg--RepairMaintanense" />
                                         </svg> Repair & Maintanense</label>
                                 </div>
@@ -156,14 +165,14 @@ export default class View {
                                         </svg> rent</label>
                                 </div>
                                 <div class="expenses-type-option">
-                                    <input type="radio" name="expenses-type" id="other">
-                                    <label for="other"><svg id="svg--investment">
+                                    <input type="radio" name="expenses-type" id="investment">
+                                    <label for="investment"><svg id="svg--investment">
                                             <use href="./sprite.svg#svg--investment" />
                                         </svg> investment</label>
                                 </div>
                                 <div class="expenses-type-option">
-                                    <input type="radio" name="expenses-type" id="other">
-                                    <label for="other"><svg id="svg--food">
+                                    <input type="radio" name="expenses-type" id="food">
+                                    <label for="food"><svg id="svg--food">
                                             <use href="./sprite.svg#svg--food" />
                                         </svg> food</label>
                                 </div>
@@ -175,7 +184,6 @@ export default class View {
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </form>
                 <div class="container-num-tab">
@@ -201,7 +209,7 @@ export default class View {
                         </svg>
                     </button>
                 </div>
-            </div> 
+            </div>
    `;
 
     this.root
@@ -210,15 +218,15 @@ export default class View {
 
     this.root
       .querySelector('.btn--add-transaction')
-      .addEventListener('click', this._displayModalExpense.bind(this));
+      .addEventListener('click', this._displayModalTransaction.bind(this));
 
     this.root
       .querySelector('.close--modal')
-      .addEventListener('click', this._displayModalExpense.bind(this));
+      .addEventListener('click', this._displayModalTransaction.bind(this));
   }
 
-  _displayModalExpense() {
-    this.root.querySelector('.modal--add-expense').classList.toggle('hide');
+  _displayModalTransaction() {
+    this.root.querySelector('.modal--add-transaction').classList.toggle('hide');
   }
 
   _BtnChangeChartType() {
