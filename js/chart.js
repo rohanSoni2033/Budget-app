@@ -1,9 +1,12 @@
+import labelsColor from './labelsColor.js';
+
 export default class Display {
   constructor(root, type, chartData) {
     root.querySelector('#chart').remove();
 
     const labels = Object.keys(chartData);
     const expenseAmount = Object.values(chartData);
+    const backgroundColor = labels.map((label) => labelsColor[label]);
 
     const chartContainer = root.querySelector('.container-chart');
 
@@ -19,17 +22,7 @@ export default class Display {
         {
           label: '# of Votes',
           data: expenseAmount,
-          backgroundColor: [
-            'rgb(100, 0, 231)',
-            'lightseagreen',
-            'rgb(243, 0, 0)',
-            'rgb(114, 0, 180)',
-            'rgb(0, 180, 0)',
-            'rgb(168, 124, 58)',
-            'orange',
-            'rgb(252, 116, 25)',
-            'rgb(0, 240, 60)',
-          ],
+          backgroundColor,
         },
       ],
     };
