@@ -44,7 +44,7 @@ export default class View {
            ${data.transactions
              .map((transaction) => {
                return `
-                      <div class="container--transaction">
+                      <div class="container--transaction" data-id="${transaction.id}">
                         <div class="row">
                           <div class="transaction-details">
                             <svg id="svg--${transaction.type}">
@@ -223,6 +223,8 @@ export default class View {
     this.root
       .querySelector('.close--modal')
       .addEventListener('click', this._displayModalTransaction.bind(this));
+
+    this._addHandlersBtn();
   }
 
   _displayModalTransaction() {
@@ -235,6 +237,20 @@ export default class View {
     changeChartTypeButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
         this.changeChartType(btn.dataset.charttype);
+      });
+    });
+  }
+
+  _addHandlersBtn() {
+    this.root.querySelectorAll('.btn--delete-transaction').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const { id } = e.target.closest('.container--transaction').dataset;
+      });
+    });
+
+    this.root.querySelectorAll('.btn--edit-transaction').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const { id } = e.target.closest('.container--transaction').dataset;
       });
     });
   }
