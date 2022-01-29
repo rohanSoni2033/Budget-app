@@ -12,7 +12,7 @@ export default class App {
 
     const view = new View(this.root, this.data, {
       changeChartType(chartType) {
-        new Display(this.root, chartType);
+        new Display(this.root, chartType, chartData);
       },
     });
 
