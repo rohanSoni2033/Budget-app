@@ -1,6 +1,9 @@
 export default class Display {
-  constructor(root, type) {
+  constructor(root, type, chartData) {
     root.querySelector('#chart').remove();
+
+    const labels = Object.keys(chartData);
+    const expenseAmount = Object.values(chartData);
 
     const chartContainer = root.querySelector('.container-chart');
 
@@ -10,24 +13,12 @@ export default class Display {
     );
     const ctx = root.querySelector('#chart').getContext('2d');
 
-    const labels = [
-      'Education',
-      'Repair-&-Maintanense',
-      'Shopping',
-      'Entertainment',
-      'Health',
-      'Vehicle',
-      'Investment',
-      'Food',
-      'Other',
-    ];
-
     const data = {
       labels,
       datasets: [
         {
           label: '# of Votes',
-          data: [1200, 190, 1600, 500, 200, 130, 1300, 560, 600],
+          data: expenseAmount,
           backgroundColor: [
             'rgb(100, 0, 231)',
             'lightseagreen',
