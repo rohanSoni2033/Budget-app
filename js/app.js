@@ -14,6 +14,10 @@ export default class App {
       changeChartType(chartType) {
         new Display(this.root, chartType, chartData);
       },
+      deleteExpense(id) {
+        Storage._deleteData(id);
+        console.log('delete this expense ' + id);
+      },
     });
 
     this._displayChart('doughnut', chartData);

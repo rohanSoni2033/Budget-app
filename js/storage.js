@@ -21,7 +21,7 @@ export default class Storage {
   static _deleteData(id) {
     const savedExpensesList = this._getAllData();
     const index = savedExpensesList[0].transactions.findIndex(
-      (t) => transaction.id === id
+      (t) => t.id === +id
     );
 
     if (index > -1) {
@@ -48,7 +48,7 @@ export default class Storage {
     this._saveToLocalStrorage(savedExpensesList);
   }
 
-  _saveToLocalStrorage(savedExpensesList) {
+  static _saveToLocalStrorage(savedExpensesList) {
     localStorage.setItem('expensesList', JSON.stringify(savedExpensesList));
   }
 }

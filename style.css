@@ -192,7 +192,6 @@ svg use {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: 24px;
   overflow-y: scroll;
 }
@@ -211,6 +210,12 @@ svg use {
   gap: 16px;
   padding: 12px 8px;
   border-radius: 12px;
+  transition: all 0.4s;
+}
+
+.container--transaction.remove {
+  transform: translateX(-100%);
+  opacity: 0;
 }
 
 .container--transaction .row {

@@ -1,7 +1,8 @@
 export default class View {
-  constructor(root, data, { changeChartType }) {
+  constructor(root, data, { changeChartType, deleteExpense }) {
     this.root = root;
     this.changeChartType = changeChartType;
+    this.deleteExpense = deleteExpense;
 
     this._BtnChangeChartType();
 
@@ -244,7 +245,15 @@ export default class View {
   _addHandlersBtn() {
     this.root.querySelectorAll('.btn--delete-transaction').forEach((btn) => {
       btn.addEventListener('click', (e) => {
-        const { id } = e.target.closest('.container--transaction').dataset;
+        const expenseElement = e.target.closest('.container--transaction');
+        const { id } = expenseElement.dataset;
+
+        expenseElement.classList.add('remove');
+        setTimeout(() => {
+          expenseElement.remove();
+        }, 400);
+
+        this.deleteExpense(id);
       });
     });
 
