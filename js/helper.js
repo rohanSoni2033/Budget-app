@@ -1,4 +1,6 @@
 export const getExpenseObject = (data) => {
+  console.log(data);
+  let spent = 0;
   const expenseObject = {};
 
   data.forEach((expense) => {
@@ -7,7 +9,10 @@ export const getExpenseObject = (data) => {
     } else {
       expenseObject[expense.type] = expense.amount;
     }
+    spent += expense.amount;
   });
 
-  return expenseObject;
+  return { totalExpense: expenseObject, spent: spent };
 };
+
+// export const calculateTotalAmount =

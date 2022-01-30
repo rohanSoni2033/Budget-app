@@ -6,24 +6,37 @@ import { getExpenseObject } from './helper.js';
 export default class App {
   constructor(root) {
     this.root = root;
-    this.data = Storage._getAllData()[0];
+    this.chartType = undefined;
+    this.chartData = [];
+    this._refresh();
 
-    const chartData = getExpenseObject(this.data.transactions);
+    this.view = new View(this.root, this.data, this._handlers());
 
-    const view = new View(this.root, this.data, {
-      changeChartType(chartType) {
-        new Display(this.root, chartType, chartData);
-      },
-      deleteExpense(id) {
-        Storage._deleteData(id);
-        console.log('delete this expense ' + id);
-      },
-    });
-
-    this._displayChart('doughnut', chartData);
+    console.log(this);
   }
 
-  _displayChart(chartType, chartData) {
-    new Display(this.root, chartType, chartData);
+  _handlers() {
+    return {
+      changeChartType: (chartType) => {
+        this.chartType = chartType;
+        this._refresh();
+      },
+      deleteExpense: (id) => {
+        Storage._deleteData(id);
+        console.log('delete this expense ' + id);
+
+        this._refresh();
+      },
+    };
+  }
+
+  _refresh() {
+    this.data = Storage._getAllData()[0];
+    const expenseObject = getExpenseObject(this.data.transactions);
+    this.chartData = expenseObject.totalExpense;
+    this.data.spent = expenseObject.spent;
+    this.data.avilableBalance = this.data.income - expenseObject.spent;
+
+    new Display(this.root, this.chartType || 'doughnut', this.chartData);
   }
 }

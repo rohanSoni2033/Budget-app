@@ -25,16 +25,18 @@ export default class View {
               <span class="available-balance-title">avilable balance</span>
               <span class="date">${new Date().toLocaleDateString()}</span>
             </div>
-              <h2 class="total-available-balance">₹ ${data.avilableBalance}</h2>
+              <h2 class="total-available-balance" id="avilableBalance">₹ ${
+                data.avilableBalance
+              }</h2>
           </div>
           <div class="other-balance">
             <div class="col">
                 <span class="spent small-bold">spent</span>
-                <h3>₹ ${data.spent}</h3>
+                <h3 id="spent">₹ ${data.spent}</h3>
             </div>
             <div class="col">
                 <span class="income small-bold">income</span>
-                <h3>₹ ${data.income}</h3>
+                <h3 id="income">₹ ${data.income}</h3>
             </div>
           </div>
         </div>
@@ -226,6 +228,11 @@ export default class View {
       .addEventListener('click', this._displayModalTransaction.bind(this));
 
     this._addHandlersBtn();
+  }
+
+  _updateBalance(avilableBalance, spent) {
+    this.root.querySelector('#avilableBalance').textContent = avilableBalance;
+    this.root.querySelector('#spent').textContent = spent;
   }
 
   _displayModalTransaction() {
