@@ -7,18 +7,23 @@ export default class App {
   constructor(root) {
     this.root = root;
     this.chartType = undefined;
+    this.data = Storage._getAllData()[0];
     this.chartData = [];
-    this._refresh();
 
     this.view = new View(this.root, this.data, this._handlers());
-
-    console.log(this);
+    this._refresh();
   }
 
   _handlers() {
     return {
       changeChartType: (chartType) => {
         this.chartType = chartType;
+
+        this._refresh();
+      },
+      addExpense: (data) => {
+        Storage._saveData(data);
+
         this._refresh();
       },
       deleteExpense: (id) => {
@@ -34,9 +39,9 @@ export default class App {
     this.data = Storage._getAllData()[0];
     const expenseObject = getExpenseObject(this.data.transactions);
     this.chartData = expenseObject.totalExpense;
-    this.data.spent = expenseObject.spent;
-    this.data.avilableBalance = this.data.income - expenseObject.spent;
-
+    const spent = expenseObject.spent;
+    const avilableBalance = this.data.income - spent;
+    this.view._updateBalance(this.data.transactions, avilableBalance, spent);
     new Display(this.root, this.chartType || 'doughnut', this.chartData);
   }
 }

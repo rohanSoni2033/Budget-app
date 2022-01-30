@@ -266,60 +266,55 @@ svg use {
 /* ///////////////////////////////// */
 /* SVG CSS */
 #svg--food {
-  background-color: rgb(240, 144, 0);
+  background-color: #f09000;
 }
 
 #svg--education {
-  background-color: rgb(100, 0, 231);
+  background-color: #6400e7;
 }
 
 #svg--other {
-  background-color: rgb(0, 240, 60);
+  background-color: #0300b4;
 }
 
 #svg--health {
-  background-color: rgb(0, 180, 0);
+  background-color: #00cf79;
 }
 
 #svg--rechargeBills {
-  background-color: gold;
+  background-color: #53008f;
 }
 
 #svg--traveling {
-  background-color: rgb(0, 140, 255);
+  background-color: #008cff;
 }
 
 #svg--vehicle {
-  background-color: rgb(168, 124, 58);
+  background-color: #a52a2a;
 }
-#local-mall {
-  background-color: rgb(240, 144, 0);
-}
+
 #svg--entertainment {
-  background-color: rgb(114, 0, 180);
-}
-#savings {
-  background-color: rgb(3, 0, 180);
+  background-color: #c700ac;
 }
 
 #svg--shopping {
-  background-color: rgb(243, 0, 0);
+  background-color: #f30000;
 }
 
 #svg--rechargeBills {
-  background-color: indigo;
+  background-color: #53008f;
 }
 
 #svg--rent {
-  background-color: lightcoral;
+  background-color: #ff7f50;
 }
 
 #svg--RepairMaintanense {
-  background-color: lightseagreen;
+  background-color: #19c7be;
 }
 
 #svg--investment {
-  background-color: orange;
+  background-color: #ffd700;
 }
 
 #add {

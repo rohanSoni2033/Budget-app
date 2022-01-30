@@ -14,5 +14,3 @@ export const getExpenseObject = (data) => {
 
   return { totalExpense: expenseObject, spent: spent };
 };
-
-// export const calculateTotalAmount =

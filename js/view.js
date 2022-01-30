@@ -1,8 +1,9 @@
 export default class View {
-  constructor(root, data, { changeChartType, deleteExpense }) {
+  constructor(root, data, { changeChartType, deleteExpense, addExpense }) {
     this.root = root;
     this.changeChartType = changeChartType;
     this.deleteExpense = deleteExpense;
+    this.addExpense = addExpense;
 
     this._BtnChangeChartType();
 
@@ -43,38 +44,6 @@ export default class View {
 
 
         <div class="container--transactions-list">
-
-           ${data.transactions
-             .map((transaction) => {
-               return `
-                      <div class="container--transaction" data-id="${transaction.id}">
-                        <div class="row">
-                          <div class="transaction-details">
-                            <svg id="svg--${transaction.type}">
-                                <use href="./sprite.svg#svg--${transaction.type}" />
-                            </svg>
-                            <div class="transaction-name col">
-                                <span>${transaction.name}</span>
-                                <span class="transaction-date">${transaction.date}</sp>
-                            </div>
-                          </div>
-                            <h3 class="transaction-amount debit">₹${transaction.amount}</h3>
-                        </div>
-                        <div class="container--btn">
-                            <button class="btn flex-center btn--edit-transaction">
-                                <svg>
-                                    <use href="./sprite.svg#edit" />
-                                </svg>
-                            </button>
-                            <button class="btn flex-center btn--delete-transaction">
-                                <svg>
-                                    <use href="./sprite.svg#delete" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>`;
-             })
-             .join('')}
         </div>
     </div> 
      <div class="modal--add-transaction hide">
@@ -107,80 +76,80 @@ export default class View {
                         </div>
                         <div class="expense-category">
                             <p>category</p>
-                            <button class="btn select-expense-category" id="select-expense-category" type="button">
+                            <button class="btn select-expense-category" type="button">
                                 <svg>
                                     <use href="./sprite.svg#svg--other" />
                                 </svg>
                             </button>
                             <div class="container-expenses-type-option hidden">
                                 <div class="expenses-type-option">
-                                    <input type="radio" name="expenses-type" id="education">
+                                    <input type="radio" name="expenses-type" id="education" class="input--expense-type">
                                     <label for="education"> <svg id="svg--education">
                                             <use href="./sprite.svg#svg--education" />
                                         </svg> education</label>
                                 </div>
                                 <div class="expenses-type-option">
-                                    <input type="radio" name="expenses-type" id="Repair-&-Maintanense">
-                                    <label for="Repair-&-Maintanense"><svg id="svg--RepairMaintanense">
+                                    <input type="radio" name="expenses-type" id="RepairMaintanense" class="input--expense-type">
+                                    <label for="RepairMaintanense"><svg id="svg--RepairMaintanense">
                                             <use href="./sprite.svg#svg--RepairMaintanense" />
                                         </svg> Repair & Maintanense</label>
                                 </div>
                                 <div class="expenses-type-option">
-                                    <input type="radio" name="expenses-type" id="bills">
-                                    <label for="bills"><svg id="svg--rechargeBills">
+                                    <input type="radio" name="expenses-type" id="rechargeBills" class="input--expense-type">
+                                    <label for="rechargeBills"><svg id="svg--rechargeBills">
                                             <use href="./sprite.svg#svg--rechargeBills" />
                                         </svg> recharge & bills</label>
                                 </div>
                                 <div class="expenses-type-option">
-                                    <input type="radio" name="expenses-type" id="entertainment">
+                                    <input type="radio" name="expenses-type" id="entertainment" class="input--expense-type">
                                     <label for="entertainment"><svg id="svg--entertainment">
                                             <use href="./sprite.svg#svg--entertainment" />
                                         </svg> entertainment</label>
                                 </div>
                                 <div class="expenses-type-option">
-                                    <input type="radio" name="expenses-type" id="traveling">
+                                    <input type="radio" name="expenses-type" id="traveling" class="input--expense-type">
                                     <label for="traveling"><svg id="svg--traveling">
                                             <use href="./sprite.svg#svg--traveling" />
                                         </svg> traveling</label>
                                 </div>
                                 <div class="expenses-type-option">
-                                    <input type="radio" name="expenses-type" id="health">
+                                    <input type="radio" name="expenses-type" id="health" class="input--expense-type">
                                     <label for="health"><svg id="svg--health">
                                             <use href="./sprite.svg#svg--health" />
                                         </svg> health</label>
                                 </div>
                                 <div class="expenses-type-option">
-                                    <input type="radio" name="expenses-type" id="vehicle">
+                                    <input type="radio" name="expenses-type" id="vehicle" class="input--expense-type">
                                     <label for="vehicle"><svg id="svg--vehicle">
                                             <use href="./sprite.svg#svg--vehicle" />
                                         </svg> vehicle</label>
                                 </div>
                                 <div class="expenses-type-option">
-                                    <input type="radio" name="expenses-type" id="shopping">
+                                    <input type="radio" name="expenses-type" id="shopping" class="input--expense-type">
                                     <label for="shopping"><svg id="svg--shopping">
                                             <use href="./sprite.svg#svg--shopping" />
                                         </svg> shopping</label>
                                 </div>
                                 <div class="expenses-type-option">
-                                    <input type="radio" name="expenses-type" id="rent">
+                                    <input type="radio" name="expenses-type" id="rent" class="input--expense-type">
                                     <label for="rent"><svg id="svg--rent">
                                             <use href="./sprite.svg#svg--rent" />
                                         </svg> rent</label>
                                 </div>
                                 <div class="expenses-type-option">
-                                    <input type="radio" name="expenses-type" id="investment">
+                                    <input type="radio" name="expenses-type" id="investment" class="input--expense-type">
                                     <label for="investment"><svg id="svg--investment">
                                             <use href="./sprite.svg#svg--investment" />
                                         </svg> investment</label>
                                 </div>
                                 <div class="expenses-type-option">
-                                    <input type="radio" name="expenses-type" id="food">
+                                    <input type="radio" name="expenses-type" id="food" class="input--expense-type">
                                     <label for="food"><svg id="svg--food">
                                             <use href="./sprite.svg#svg--food" />
                                         </svg> food</label>
                                 </div>
                                 <div class="expenses-type-option">
-                                    <input type="radio" name="expenses-type" id="other">
+                                    <input type="radio" name="expenses-type" id="other" class="input--expense-type">
                                     <label for="other"><svg id="svg--other">
                                             <use href="./sprite.svg#svg--other" />
                                         </svg> other</label>
@@ -227,12 +196,82 @@ export default class View {
       .querySelector('.close--modal')
       .addEventListener('click', this._displayModalTransaction.bind(this));
 
+    this.root
+      .querySelector('.select-expense-category')
+      .addEventListener('click', () => {
+        this.root
+          .querySelector('.container-expenses-type-option')
+          .classList.toggle('hidden');
+      });
+
+    this._getExpenseInput();
+
     this._addHandlersBtn();
   }
 
-  _updateBalance(avilableBalance, spent) {
+  _updateBalance(transactions, avilableBalance, spent) {
+    const containerTransactionList = this.root.querySelector(
+      '.container--transactions-list'
+    );
+
+    containerTransactionList.innerHTML = '';
+    transactions.sort((a, b) => {
+      console.log(a.date, b.date);
+    });
+
+    const markup = `${transactions
+      ?.map((transaction) => {
+        return `
+                      <div class="container--transaction" data-id="${transaction.id}">
+                        <div class="row">
+                          <div class="transaction-details">
+                            <svg id="svg--${transaction.type}">
+                                <use href="./sprite.svg#svg--${transaction.type}" />
+                            </svg>
+                            <div class="transaction-name col">
+                                <span>${transaction.name}</span>
+                                <span class="transaction-date">${transaction.date}</sp>
+                            </div>
+                          </div>
+                            <h3 class="transaction-amount debit">₹${transaction.amount}</h3>
+                        </div>
+                        <div class="container--btn">
+                            <button class="btn flex-center btn--edit-transaction" data-id="${transaction.id}">
+                                <svg>
+                                    <use href="./sprite.svg#edit" />
+                                </svg>
+                            </button>
+                            <button class="btn flex-center btn--delete-transaction" data-id="${transaction.id}">
+                                <svg>
+                                    <use href="./sprite.svg#delete" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>`;
+      })
+      .join('')}`;
+
+    this.root.querySelector('.modal--add-transaction').classList.add('hide');
+
+    containerTransactionList.insertAdjacentHTML('afterbegin', markup);
+
     this.root.querySelector('#avilableBalance').textContent = avilableBalance;
     this.root.querySelector('#spent').textContent = spent;
+  }
+
+  _getExpenseInput() {
+    const enterButton = this.root.querySelector('.enter');
+
+    const expenseAmont = this.root.querySelector('.input--expense-amount');
+    const expenseName = this.root.querySelector('.input--expense-name');
+
+    enterButton.addEventListener('click', () => {
+      this.addExpense({
+        amount: expenseAmont.value,
+        name: expenseName.value,
+        type: expenseType.value,
+      });
+    });
   }
 
   _displayModalTransaction() {
@@ -250,24 +289,28 @@ export default class View {
   }
 
   _addHandlersBtn() {
-    this.root.querySelectorAll('.btn--delete-transaction').forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        const expenseElement = e.target.closest('.container--transaction');
-        const { id } = expenseElement.dataset;
+    const containerTransactionList = this.root.querySelector(
+      '.container--transactions-list'
+    );
 
+    containerTransactionList.addEventListener('click', (e) => {
+      const t = e.target;
+      const expenseElement = t.closest('.container--transaction');
+      const dltButton = t.closest('.btn--delete-transaction');
+      const editButton = t.closest('.btn--edit-transaction');
+
+      if (dltButton) {
+        const { id } = expenseElement.dataset;
         expenseElement.classList.add('remove');
         setTimeout(() => {
           expenseElement.remove();
+          this.deleteExpense(id);
         }, 400);
-
-        this.deleteExpense(id);
-      });
-    });
-
-    this.root.querySelectorAll('.btn--edit-transaction').forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        const { id } = e.target.closest('.container--transaction').dataset;
-      });
+      }
+      if (editButton) {
+        const { id } = expenseElement.dataset;
+        console.log(`edit : ${id}`);
+      }
     });
   }
 }

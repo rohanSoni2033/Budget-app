@@ -12,7 +12,7 @@ export default class Storage {
       date: new Date().toLocaleDateString(),
       name: data.name,
       type: data.type,
-      amount: data.amount,
+      amount: +data.amount,
     });
 
     this._saveToLocalStrorage(savedExpensesList);
